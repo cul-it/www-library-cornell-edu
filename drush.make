@@ -124,7 +124,7 @@ projects[mass_contact][subdir] = "contrib"
 projects[media][version] = "1.5"
 projects[media][subdir] = "contrib"
 
-projects[menu_attributes][version] = "1.0-rc3"
+projects[menu_attributes][version] = "1.0"
 projects[menu_attributes][subdir] = "contrib"
 
 projects[menu_block][version] = "2.7"
