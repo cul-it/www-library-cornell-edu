@@ -66,7 +66,7 @@ projects[features][subdir] = "contrib"
 projects[features_extra][version] = "1.0"
 projects[features_extra][subdir] = "contrib"
 
-projects[feeds][version] = "2.0-beta1"
+projects[feeds][version] = "2.0-beta2"
 projects[feeds][subdir] = "contrib"
 
 projects[feeds_node_helper][version] = "1.5"
