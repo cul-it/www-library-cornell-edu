@@ -2,7 +2,7 @@
 core = "7.x"
 api = "2"
 
-projects[drupal] = "7.42"
+projects[drupal] = "7.43"
 
 ; +++++ Modules +++++
 
