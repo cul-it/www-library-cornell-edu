@@ -242,13 +242,6 @@ projects[cul_hours][revision] = "HEAD"
 projects[cul_hours][subdir] = "custom"
 projects[cul_hours][type] = "module"
 
-projects[course_help][download][type] = "svn"
-projects[course_help][download][url] = "https://svn.library.cornell.edu/course_help/branches/drupal7"
-projects[course_help][revision] = "HEAD"
-projects[course_help][subdir] = "custom"
-projects[course_help][type] = "module"
-projects[course_help][directory_name] = "course_help"
-
 projects[liaisons][download][type] = "svn"
 projects[liaisons][download][url] = "https://svn.library.cornell.edu/liaisons/branches/drupal7/module"
 projects[liaisons][revision] = "HEAD"
