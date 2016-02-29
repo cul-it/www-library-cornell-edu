@@ -2,7 +2,7 @@
 core = "7.x"
 api = "2"
 
-projects[drupal] = "7.42"
+projects[drupal] = "7.43"
 
 ; +++++ Modules +++++
 
@@ -66,7 +66,7 @@ projects[features][subdir] = "contrib"
 projects[features_extra][version] = "1.0"
 projects[features_extra][subdir] = "contrib"
 
-projects[feeds][version] = "2.0-beta1"
+projects[feeds][version] = "2.0-beta2"
 projects[feeds][subdir] = "contrib"
 
 projects[feeds_node_helper][version] = "1.5"
@@ -124,7 +124,7 @@ projects[mass_contact][subdir] = "contrib"
 projects[media][version] = "1.5"
 projects[media][subdir] = "contrib"
 
-projects[menu_attributes][version] = "1.0-rc3"
+projects[menu_attributes][version] = "1.0"
 projects[menu_attributes][subdir] = "contrib"
 
 projects[menu_block][version] = "2.7"
@@ -241,13 +241,6 @@ projects[cul_hours][download][url] = "https://svn.library.cornell.edu/cul_hours/
 projects[cul_hours][revision] = "HEAD"
 projects[cul_hours][subdir] = "custom"
 projects[cul_hours][type] = "module"
-
-projects[course_help][download][type] = "svn"
-projects[course_help][download][url] = "https://svn.library.cornell.edu/course_help/branches/drupal7"
-projects[course_help][revision] = "HEAD"
-projects[course_help][subdir] = "custom"
-projects[course_help][type] = "module"
-projects[course_help][directory_name] = "course_help"
 
 projects[liaisons][download][type] = "svn"
 projects[liaisons][download][url] = "https://svn.library.cornell.edu/liaisons/branches/drupal7/module"
