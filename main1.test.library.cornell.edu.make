@@ -255,12 +255,6 @@ projects[liaisons][revision] = "HEAD"
 projects[liaisons][subdir] = "custom"
 projects[liaisons][type] = "module"
 
-projects[cul_multisearch][download][type] = "svn"
-projects[cul_multisearch][download][url] = "https://svn.library.cornell.edu/cul_multisearch/branches/drupal7/module"
-projects[cul_multisearch][revision] = "HEAD"
-projects[cul_multisearch][subdir] = "custom"
-projects[cul_multisearch][type] = "module"
-
 projects[cu_webauth][download][type] = "svn"
 projects[cu_webauth][download][url] = "https://svn.library.cornell.edu/cu-webauth/trunk/module"
 projects[cu_webauth][revision] = "HEAD"
