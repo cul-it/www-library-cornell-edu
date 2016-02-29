@@ -269,7 +269,7 @@ projects[cu_emergency_banner][type] = "module"
 
 ; +++++ Themes +++++
 
-projects[bootstrap][version] = "3.3"
+projects[bootstrap][version] = "3.4"
 projects[bootstrap][patch][] = "http://drupal.org/files/1940604-bootstrap-icon_api-7.patch"
 
 projects[bootstrap_cul7][directory_name] = "bootstrap_cul7"
