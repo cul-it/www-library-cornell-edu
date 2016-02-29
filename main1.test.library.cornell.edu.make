@@ -289,3 +289,8 @@ libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.3/ckeditor_4.3_standard.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
 
+libraries[fontawesome][directory_name] = "fontawesome"
+libraries[fontawesome][download][type] = "get"
+libraries[fontawesome][download][url] = "http://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.5.0.zip"
+
+
