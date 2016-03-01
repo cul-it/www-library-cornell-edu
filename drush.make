@@ -81,6 +81,9 @@ projects[feeds_xpathparser][subdir] = "contrib"
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.5"
 
+projects[fontawesome][subdir] = "contrib"
+projects[fontawesome][version] = "2.5"
+
 projects[gmap][version] = "2.10"
 projects[gmap][subdir] = "contrib"
 
