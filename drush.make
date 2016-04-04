@@ -54,13 +54,13 @@ projects[email][version] = "1.3"
 projects[elysia_cron][subdir] = "contrib"
 projects[elysia_cron][version] = "2.1"
 
-projects[entity][version] = "1.6"
+projects[entity][version] = "1.7"
 projects[entity][subdir] = "contrib"
 
 projects[entityreference][version] = "1.1"
 projects[entityreference][subdir] = "contrib"
 
-projects[features][version] = "2.7"
+projects[features][version] = "2.8"
 projects[features][subdir] = "contrib"
 
 projects[features_extra][version] = "1.0"
@@ -81,7 +81,7 @@ projects[feeds_xpathparser][subdir] = "contrib"
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.5"
 
-projects[gmap][version] = "2.10"
+projects[gmap][version] = "2.11"
 projects[gmap][subdir] = "contrib"
 
 projects[google_analytics][version] = "2.1"
@@ -93,7 +93,7 @@ projects[hacked][subdir] = "contrib"
 projects[imagefield_crop][version] = "1.1"
 projects[imagefield_crop][subdir] = "contrib"
 
-projects[imce][version] = "1.9"
+projects[imce][version] = "1.10"
 projects[imce][subdir] = "contrib"
 
 projects[job_scheduler][version] = "2.0-alpha3"
@@ -139,7 +139,7 @@ projects[migrate_d2d][subdir] = "contrib"
 projects[mollom][version] = "2.15"
 projects[mollom][subdir] = "contrib"
 
-projects[node_export] = "3.0"
+projects[node_export] = "3.1"
 projects[node_export][subdir] = "contrib"
 
 projects[nodequeue] = "2.0"
@@ -190,7 +190,7 @@ projects[uuid][subdir] = "contrib"
 projects[uuid_features][version] = "1.0-alpha4"
 projects[uuid_features][subdir] = "contrib"
 
-projects[viewreference][version] = "3.4"
+projects[viewreference][version] = "3.5"
 projects[viewreference][subdir] = "contrib"
 
 projects[views][version] = "3.13"
@@ -262,7 +262,7 @@ projects[cu_emergency_banner][type] = "module"
 
 ; +++++ Themes +++++
 
-projects[bootstrap][version] = "3.4"
+projects[bootstrap][version] = "3.5"
 projects[bootstrap][patch][] = "http://drupal.org/files/1940604-bootstrap-icon_api-7.patch"
 
 projects[bootstrap_cul7][directory_name] = "bootstrap_cul7"
