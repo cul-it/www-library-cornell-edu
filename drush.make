@@ -60,7 +60,7 @@ projects[entity][subdir] = "contrib"
 projects[entityreference][version] = "1.1"
 projects[entityreference][subdir] = "contrib"
 
-projects[features][version] = "2.7"
+projects[features][version] = "2.8"
 projects[features][subdir] = "contrib"
 
 projects[features_extra][version] = "1.0"
