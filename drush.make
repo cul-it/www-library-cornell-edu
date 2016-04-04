@@ -54,7 +54,7 @@ projects[email][version] = "1.3"
 projects[elysia_cron][subdir] = "contrib"
 projects[elysia_cron][version] = "2.1"
 
-projects[entity][version] = "1.6"
+projects[entity][version] = "1.7"
 projects[entity][subdir] = "contrib"
 
 projects[entityreference][version] = "1.1"
