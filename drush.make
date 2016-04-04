@@ -81,7 +81,7 @@ projects[feeds_xpathparser][subdir] = "contrib"
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.5"
 
-projects[gmap][version] = "2.10"
+projects[gmap][version] = "2.11"
 projects[gmap][subdir] = "contrib"
 
 projects[google_analytics][version] = "2.1"
