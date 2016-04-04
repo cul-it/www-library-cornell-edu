@@ -139,7 +139,7 @@ projects[migrate_d2d][subdir] = "contrib"
 projects[mollom][version] = "2.15"
 projects[mollom][subdir] = "contrib"
 
-projects[node_export] = "3.0"
+projects[node_export] = "3.1"
 projects[node_export][subdir] = "contrib"
 
 projects[nodequeue] = "2.0"
