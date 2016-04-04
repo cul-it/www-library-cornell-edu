@@ -190,7 +190,7 @@ projects[uuid][subdir] = "contrib"
 projects[uuid_features][version] = "1.0-alpha4"
 projects[uuid_features][subdir] = "contrib"
 
-projects[viewreference][version] = "3.4"
+projects[viewreference][version] = "3.5"
 projects[viewreference][subdir] = "contrib"
 
 projects[views][version] = "3.13"
