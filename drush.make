@@ -68,6 +68,7 @@ projects[features_extra][subdir] = "contrib"
 
 projects[feeds][version] = "2.0-beta2"
 projects[feeds][subdir] = "contrib"
+projects[feeds][patch][] = "http://www.drupal.org/files/user_name_and_email_targets-1241754-11.patch"
 
 projects[feeds_node_helper][version] = "1.5"
 projects[feeds_node_helper][subdir] = "contrib"
