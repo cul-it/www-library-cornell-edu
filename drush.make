@@ -227,13 +227,6 @@ projects[ares][revision] = "HEAD"
 projects[ares][subdir] = "custom"
 projects[ares][type] = "module"
 
-projects[features_tools][type] = "module"
-projects[features_tools][download][type] = "get"
-projects[features_tools][download][url] = "http://featureserver.test.library.cornell.edu/capdeploy/sites/default/files/fserver/features_tools-7.x-1.0-alpha6_0.tar"
-projects[features_tools][location] = http://featureserver.test.library.cornell.edu/capdeploy/?q=fserver
-projects[features_tools][subdir] = "custom"
-projects[features_tools][directory_name] = "features_tools"
-
 projects[patroninfo][download][type] = "svn"
 projects[patroninfo][download][url] = "https://svn.library.cornell.edu/patroninfo/branches/drupal7/module"
 projects[patroninfo][revision] = "HEAD"
