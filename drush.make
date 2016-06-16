@@ -58,11 +58,7 @@ projects[cu_webauth][subdir] = "custom"
 projects[cu_webauth][type] = "module"
 projects[cul_hours][download][type] = "git"
 projects[cul_hours][download][url] = "git@github.com:cul-it/cul-hours-module.git"
-<<<<<<< HEAD
-projects[cul_hours][branch] = "minimal"
-=======
 projects[cul_hours][download][branch] = "minimal"
->>>>>>> release/20160616-2
 projects[cul_hours][subdir] = "custom"
 projects[cul_hours][type] = "module"
 projects[cul_prepopulate_webforms][download][type] = "git"
