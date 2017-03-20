@@ -113,6 +113,10 @@ projects[jquery_update][version] = "2.7"
 projects[liaisons][download][branch] = "master"
 projects[liaisons][download][type] = "git"
 projects[liaisons][download][url] = "git@github.com:cul-it/liaisons-module.git"
+<<<<<<< HEAD
+=======
+projects[liaisons][download][branch] = "www.library.cornell.edu"
+>>>>>>> master
 projects[liaisons][subdir] = "custom"
 projects[liaisons][type] = "module"
 projects[libraries][subdir] = "contrib"
