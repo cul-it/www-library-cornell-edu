@@ -110,13 +110,9 @@ projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
 projects[jquery_update][subdir] = "contrib"
 projects[jquery_update][version] = "2.7"
-projects[liaisons][download][branch] = "master"
+projects[liaisons][download][branch] = "www.library.cornell.edu"
 projects[liaisons][download][type] = "git"
 projects[liaisons][download][url] = "git@github.com:cul-it/liaisons-module.git"
-<<<<<<< HEAD
-=======
-projects[liaisons][download][branch] = "www.library.cornell.edu"
->>>>>>> master
 projects[liaisons][subdir] = "custom"
 projects[liaisons][type] = "module"
 projects[libraries][subdir] = "contrib"
