@@ -2,7 +2,7 @@
 core = "7.x"
 api = "2"
 
-projects[drupal] = "7.55"
+projects[drupal] = "7.56"
 
 libraries[bootstrap][destination] = themes/bootstrap
 libraries[bootstrap][directory_name] = "bootstrap"
