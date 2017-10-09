@@ -1,0 +1,6 @@
+source :rubygems
+
+gem "webdrivers", "~> 3.0"
+gem "selenium-webdriver"
+gem "cucumber"
+gem 'rspec-expectations'
