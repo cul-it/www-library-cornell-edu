@@ -4,7 +4,4 @@ gem "webdrivers", "~> 3.0"
 gem "selenium-webdriver"
 gem "cucumber"
 gem 'rspec-expectations'
-gem 'launchy', :git => 'git://github.com/copiousfreetime/launchy.git'
-gem 'rspec'
-gem 'rspec-rails'
-gem 'capybara'
+gem "selenium-cucumber"
