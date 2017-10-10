@@ -71,3 +71,17 @@ Then /^I visit page "(.*?)"$/ do |sitepage|
   target = "#{@url[:domain]}" + "/#{sitepage}"
   visit target
 end
+
+Then("I enter {string} in the ares search") do |string|
+  $driver.find_element(:id, 'search_box').send_keys string
+end
+
+Then("I select the first option from the ares popup") do
+  $driver.find_element(:css, 'div.dropdown li a').click
+end
+
+Then("the title should show {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
