@@ -9,8 +9,14 @@ require 'selenium-webdriver'
 #driver = Selenium::WebDriver.for :chrome
 wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
 
-Given /^I am testing domain (.*)$/ do |domain|
-  @url = {:domain => domain}
+Given("I am testing the correct domain") do
+  edomain = ENV['DOMAIN']
+  case "#{edomain}"
+  when "production"
+    @url = {:domain => 'https://www.library.cornell.edu'}
+  else
+    @url = {:domain => 'https://wwwtest.library.cornell.edu'}
+  end
 end
 
 Given("I go to the home page") do

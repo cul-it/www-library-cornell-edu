@@ -11,3 +11,6 @@ or
 bundle exec cucumber BROWSER=chrome
 or
 bundle exec cucumber BROWSER=chrome --tags @test
+or
+bundle exec cucumber BROWSER=chrome DOMAIN=production
+(DOMAIN defaults to wwwtest.library.cornell.edu)
