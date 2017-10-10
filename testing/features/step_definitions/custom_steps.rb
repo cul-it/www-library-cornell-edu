@@ -1,8 +1,10 @@
 require 'selenium-cucumber'
+require 'capybara/cucumber'
 
 # Do Not Remove This File
 # Add your custom steps here
 # $driver is instance of webdriver use this instance to write your custom code.
+#
 
 require 'webdrivers'
 require 'selenium-webdriver'
@@ -20,7 +22,7 @@ Given("I am testing the correct domain") do
 end
 
 Given("I go to the home page") do
-   $driver.navigate.to "#{@url[:domain]}"
+  $driver.navigate.to "#{@url[:domain]}"
 end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
@@ -53,4 +55,19 @@ end
 
 Then (/I should see the link text "(.*?)"$/) do |string|
   $driver.find_element(:link_text => "#{string}")
+end
+
+## capybara versions
+#
+Then /^the page should show content "(.*?)"$/ do |expectedText|
+  expect(page).to have_content(expectedText)
+end
+
+Then /^I search aries for "(.*?)"$/ do |searchstring|
+  fill_in 'search_box', with: searchstring
+end
+
+Then /^I visit page "(.*?)"$/ do |sitepage|
+  target = "#{@url[:domain]}" + "/#{sitepage}"
+  visit target
 end
