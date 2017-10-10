@@ -5,3 +5,5 @@ gem "selenium-webdriver"
 gem "cucumber"
 gem 'rspec-expectations'
 gem "selenium-cucumber"
+gem "capybara"
+gem "rubyzip"
