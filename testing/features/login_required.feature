@@ -1,7 +1,6 @@
 @newone
 Feature: Login Required Pages
   Background:
-    Given I am testing domain http://www.library.cornell.edu
 
   @all
   Scenario: My Account requires CUWebLogin
