@@ -63,7 +63,7 @@ Then /^the page should show content "(.*?)"$/ do |expectedText|
   expect(page).to have_content(expectedText)
 end
 
-Then /^I search aries for "(.*?)"$/ do |searchstring|
+Then /^I search ares for "(.*?)"$/ do |searchstring|
   fill_in 'search_box', with: searchstring
 end
 
