@@ -22,7 +22,7 @@ Given("I am testing the correct domain") do
 end
 
 Given("I go to the home page") do
-  $driver.navigate.to "#{@url[:domain]}"
+  visit "#{@url[:domain]}"
 end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
@@ -73,20 +73,30 @@ Then /^I visit page "(.*?)"$/ do |sitepage|
 end
 
 Then("I enter {string} in the ares search") do |string|
-  $driver.find_element(:id, 'search_box').send_keys string
+  page.find_by_id('search_box').send_keys string
 end
 
 Then("I select the first option from the ares popup") do
-  path = 'div.dropdown li a'
   wait.until {
-    $driver.find_element(:css, path)
+    page.all(:css, 'div.dropdown li a')
   }
-  $driver.find_element(:css, path).click
+  within(:css, 'div.dropdown') {
+    first(:css, 'li a').click
+  }
 end
 
-
 Then("the first ares reserve title should be {string}") do |string|
+  xp = 'id(\'course-reserves-all-inline\')/tbody/tr[2]/td[1]/p/strong'
   wait.until {
-    expect($driver.find_element(:css, 'table#course-reserves-all-inline td.ares-title p.title').text).to match(string)
+    page.all(:xpath, xp)
   }
+  xp = 'id(\'course-reserves-all-inline\')'
+  expect(page.find(:xpath, xp)).to have_content(string)
+  # wait.until {
+  #   expect(find(:css, 'table#course-reserves-all-inline td.ares-title p.title').first.text).to eq(string)
+  # }
+end
+
+Then("the page title should start with {string}") do |string|
+  expect(page.title).to start_with(string)
 end
