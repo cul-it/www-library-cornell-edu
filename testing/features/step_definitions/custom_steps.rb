@@ -30,12 +30,14 @@ Then /^I go to page "(.*?)"$/ do |sitepage|
   $driver.navigate.to "#{target}"
 end
 
-When(/I click on the '([^\']+)' link$/) do |linktext|
-  $driver.find_element(:link_text => @linktext).click
+When(/I click on the "([^\']+)" link$/) do |linktext|
+  first(:xpath,"//*[normalize-space()='#{linktext}']").click
 end
 
 Then("I should see the CUWebLogin dialog") do
-  $driver.find_element(:xpath => "id('identity')/h1[contains(text(),'CUWebLogin')]")
+  #find(:xpath, "id('identity')/h1[contains(text(),'CUWebLogin')]")
+  #expect(page.all(:xpath, "id('identity')/h1")).to have_content('CUWebLogin')
+  expect(page.title).to eq('Cornell University Web Login')
 end
 
 Then /^show me the page$/ do
