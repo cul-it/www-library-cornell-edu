@@ -9,7 +9,7 @@ require 'capybara/cucumber'
 require 'webdrivers'
 require 'selenium-webdriver'
 #driver = Selenium::WebDriver.for :chrome
-wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
+wait = Selenium::WebDriver::Wait.new(:timeout => 15) # seconds
 
 Given("I am testing the correct domain") do
   edomain = ENV['DOMAIN']
