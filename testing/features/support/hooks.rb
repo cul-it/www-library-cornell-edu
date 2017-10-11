@@ -45,3 +45,9 @@ end
 at_exit do
 
 end
+
+After do |scenario|
+  if scenario.failed?
+    save_page
+  end
+end

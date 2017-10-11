@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'selenium-cucumber'
+require 'rspec/expectations'
+require 'capybara/poltergeist'
 
 # Store command line arguments
 $browser_type = ENV['BROWSER'] || 'ff'
@@ -14,15 +16,15 @@ validate_parameters $platform, $browser_type, $app_path
 
 # If platform is android or ios create driver instance for mobile browser
 if $platform == 'android' or $platform == 'iOS'
-  
+
   if $browser_type == 'native'
     $browser_type = "Browser"
   end
-  
+
   if $platform == 'android'
     $device_name, $os_version = get_device_info
   end
-  
+
   desired_caps = {
     caps:       {
       platformName:  $platform,
@@ -38,12 +40,27 @@ if $platform == 'android' or $platform == 'iOS'
     $driver = Appium::Driver.new(desired_caps).start_driver
   rescue Exception => e
     puts e.message
-    Process.exit(0)  
+    Process.exit(0)
   end
 else # else create driver instance for desktop browser
   begin
-    $driver = Selenium::WebDriver.for(:"#{$browser_type}")
-    $driver.manage().window().maximize()
+    if ENV['HEADLESS']
+        # headless tests with poltergeist/PhantomJS
+        Capybara.register_driver :poltergeist do |app|
+          Capybara::Poltergeist::Driver.new(
+            app,
+            window_size: [1280, 1024]#,
+            #debug:       true
+          )
+        end
+        Capybara.default_driver    = :poltergeist
+        Capybara.javascript_driver = :poltergeist
+        $driver = Capybara
+        #$driver.manage().window().maximize()
+    else
+        $driver = Selenium::WebDriver.for(:"#{$browser_type}")
+        $driver.manage().window().maximize()
+    end
   rescue Exception => e
     puts e.message
     Process.exit(0)
