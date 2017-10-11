@@ -84,9 +84,6 @@ Then("I select the first option from the ares popup") do
   $driver.find_element(:css, path).click
 end
 
-Then("the title should show {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
 Then("the first ares reserve title should be {string}") do |string|
   wait.until {
