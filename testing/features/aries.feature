@@ -16,8 +16,6 @@ Feature: ares course reserves
   Scenario: Check the autofill function of the front page popup
     Given I go to the home page
     Then I enter "Perm" in the ares search
-    Then I wait for 1 sec
     Then I select the first option from the ares popup
     Then I should see page title having partial text as "Search Course Reserves"
-    Then I wait 5 seconds for element having class "ares-title" to display
-    Then the page should show content "Introduction"
+    Then the first ares reserve title should be "Introductory statistical mechanics"
