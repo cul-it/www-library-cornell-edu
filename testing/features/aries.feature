@@ -17,5 +17,5 @@ Feature: ares course reserves
     Given I go to the home page
     Then I enter "Perm" in the ares search
     Then I select the first option from the ares popup
-    Then I should see page title having partial text as "Search Course Reserves"
+    Then the page title should start with "Search Course Reserves"
     Then the first ares reserve title should be "Introductory statistical mechanics"

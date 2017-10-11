@@ -7,3 +7,4 @@ gem 'rspec-expectations'
 gem "selenium-cucumber"
 gem "capybara"
 gem "rubyzip"
+gem "poltergeist"
