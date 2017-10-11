@@ -3,33 +3,33 @@ Feature: Login Required Pages
   Background:
     Given I am testing the correct domain
 
-  @all
+  @login_myaccount
   Scenario: My Account requires CUWebLogin
     Given I go to the home page
-    Then I click on link having partial text "My Account"
-    Then I should see page title having partial text as "My Account"
-    Then I click on link having partial text "Login with your NetID or GuestID"
+    When I click on the "My Account" link
+    Then the page title should start with "My Account"
+    Then I click on the "Login with your NetID or GuestID »" link
     Then I should see the CUWebLogin dialog
 
-  @all
+  @login_coap_contact
   Scenario: COAP Contact requires CUWebLogin
     Given I go to the home page
-    Then I click on link having partial text "About Us"
-    Then I should see page title having partial text as "About Us"
-    Then I click on link having partial text "subject librarians"
-    Then I click on link having partial text "Cornell Open Access Publication Fund"
-    Then I click on link having partial text "COAP Contact"
-    Then I click on link having partial text "this form"
+    Then I click on the "About Us" link
+    Then the page title should start with "About Us"
+    Then I click on the "subject librarians" link
+    Then I click on the "Cornell Open Access Publication Fund" link
+    Then I click on the "COAP Contact" link
+    Then I click on the "this form" link
     Then I should see the CUWebLogin dialog
 
-  @all
+  @login_coap_application
   Scenario: COAP Application requires CUWebLogin
     Given I go to the home page
-    Then I click on link having partial text "About Us"
-    Then I should see page title having partial text as "About Us"
-    Then I click on link having partial text "subject librarians"
-    Then I click on link having partial text "Cornell Open Access Publication Fund"
-    Then I click on link having partial text "COAP Application for Funding"
+    Then I click on the "About Us" link
+    Then the page title should start with "About Us"
+    Then I click on the "subject librarians" link
+    Then I click on the "Cornell Open Access Publication Fund" link
+    Then I click on the "COAP Application for Funding" link
     Then I should see the CUWebLogin dialog
 
   @test
