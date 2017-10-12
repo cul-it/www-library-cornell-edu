@@ -79,16 +79,11 @@ Then("I select the first option from the ares popup") do
   page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)').click
 end
 
-Then("the first ares reserve title should be {string}") do |string|
-  xp = 'id(\'course-reserves-all-inline\')/tbody/tr[2]/td[1]/p/strong'
+Then("the ares results should contain {string}") do |string|
   wait.until {
-    page.all(:xpath, xp)
+    page.all(:xpath, 'id(\'course-reserves-all-inline\')/tbody/tr[2]/td[1]/p/strong')
   }
-  xp = 'id(\'course-reserves-all-inline\')'
-  expect(page.find(:xpath, xp)).to have_content(string)
-  # wait.until {
-  #   expect(find(:css, 'table#course-reserves-all-inline td.ares-title p.title').first.text).to eq(string)
-  # }
+  expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')')).to have_content(string)
 end
 
 Then("the page title should start with {string}") do |string|
