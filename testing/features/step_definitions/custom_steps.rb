@@ -30,7 +30,7 @@ Then /^I go to page "(.*?)"$/ do |sitepage|
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
-  first(:xpath,"//*[normalize-space()='#{linktext}']").click
+  first(:xpath,"//a[normalize-space()='#{linktext}']").click
 end
 
 Then("I should see the CUWebLogin dialog") do
