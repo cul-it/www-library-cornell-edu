@@ -87,7 +87,19 @@ end
 
 When("I wait for the ares spinner to stop") do
   # see https://groups.google.com/d/msg/ruby-capybara/Mz7txv1Sm0U/xBypglg-1roJ
-  wait_for(30) {
+  wait_for(150) {
     expect(page).not_to have_selector('#items-spinner-all-inline', visible: true)
   }
 end
+
+When("I search the catalog for {string}") do |string|
+  page.fill_in 'q', with: string
+end
+
+Then("the catalog search should suggest {string}") do |string|
+  puts "ui-id-2: " + page.all(:id, 'ui-id-2').inspect
+  wait_for(5) {
+    expect(page.find(:id, 'ui-id-2').text).to have_content(string)
+  }
+end
+
