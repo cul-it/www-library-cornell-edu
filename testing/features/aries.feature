@@ -6,11 +6,10 @@ Feature: ares course reserves
   @ares_load
   Scenario: Load Ares cache for the other commands
     Given I go to the home page
-    Then I visit page "ares/search"
-    Then the page should show content "Search Course Reserves"
-    Then I wait for 20 sec
-    Then I search ares for "101"
-    Then the page should show content "Introduction"
+    When I visit page "ares/search"
+      And I search ares for "PSYCH 1101"
+      And I wait for the ares spinner to stop
+    Then the ares results should contain "Uris Library Reserve"
 
   @ares_popup
   Scenario: Check the autofill function of the front page popup

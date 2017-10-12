@@ -102,3 +102,10 @@ end
 Then("the page title should start with {string}") do |string|
   expect(page.title).to start_with(string)
 end
+
+When("I wait for the ares spinner to stop") do
+  expect(page.find('span#items-spinner-all-inline')).to have_content('Loading...')
+  wait.until {
+    expect(page).not_to have_selector('#items-spinner-all-inline', visible: true)
+  }
+end
