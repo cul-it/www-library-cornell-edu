@@ -26,7 +26,7 @@ end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
   target = "#{@url[:domain]}" + "/#{sitepage}"
-  $driver.navigate.to "#{target}"
+  visit "#{target}"
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
@@ -40,14 +40,9 @@ Then("I should see the CUWebLogin dialog") do
 end
 
 Then /^show me the page$/ do
-  print $driver.page_source
+  print page.html
   puts "current url:"
-  puts $driver.current_url
-end
-
-Then /I should see the headline "(.*?)"$/ do |headline|
-  xpath = "//*[self::h1 or self::h2 or self::h3][text()=\"#{headline}\"]"
-  $driver.find_element(:xpath => "#{xpath}")
+  puts URI.parse(current_url)
 end
 
 Then /I should see the text "(.*?)"$/ do |nugget|
@@ -58,8 +53,6 @@ Then (/I should see the link text "(.*?)"$/) do |string|
   $driver.find_element(:link_text => "#{string}")
 end
 
-## capybara versions
-#
 Then /^the page should show content "(.*?)"$/ do |expectedText|
   expect(page).to have_content(expectedText)
 end
