@@ -14,3 +14,8 @@ bundle exec cucumber BROWSER=chrome --tags @test
 or
 bundle exec cucumber BROWSER=chrome DOMAIN=production
 (DOMAIN defaults to wwwtest.library.cornell.edu)
+or
+bundle exec cucumber HEADLESS=1
+
+start phantomjs:
+phantomjs --webdriver=4444
