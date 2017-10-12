@@ -76,9 +76,8 @@ Then("I select the first option from the ares popup") do
 end
 
 Then("the ares results should contain {string}") do |string|
-  wait_for(60) {
-    page.all(:xpath, 'id(\'course-reserves-all-inline\')/tbody/tr')
-    expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')/tbody')).to have_content(string)
+  wait_for(150) {
+    expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')')).to have_content(string)
   }
 end
 
