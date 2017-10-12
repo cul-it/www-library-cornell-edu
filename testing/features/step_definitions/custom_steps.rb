@@ -80,11 +80,9 @@ end
 
 Then("I select the first option from the ares popup") do
   wait.until {
-    page.all(:css, 'div.dropdown li a')
+    page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)')
   }
-  within(:css, 'div.dropdown') {
-    first(:css, 'li a').click
-  }
+  page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)').click
 end
 
 Then("the first ares reserve title should be {string}") do |string|
