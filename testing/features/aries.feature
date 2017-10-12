@@ -30,4 +30,5 @@ Feature: ares course reserves
       | PSYCH 1101 | TakeNote |
       | Wines | Wine for dummies |
       | Oceanography | Investigating Oceanography |
+      | Music | Music Library Reserve |
 
