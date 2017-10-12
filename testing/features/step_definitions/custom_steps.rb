@@ -3,7 +3,6 @@ require 'capybara/cucumber'
 
 # Do Not Remove This File
 # Add your custom steps here
-# $driver is instance of webdriver use this instance to write your custom code.
 #
 
 require 'webdrivers'
@@ -49,14 +48,6 @@ Then /^show me the page$/ do
   print page.html
   puts "current url:"
   puts URI.parse(current_url)
-end
-
-Then /I should see the text "(.*?)"$/ do |nugget|
-  $driver.find_element(:xpath => "//*[text()=\"#{nugget}\"]")
-end
-
-Then (/I should see the link text "(.*?)"$/) do |string|
-  $driver.find_element(:link_text => "#{string}")
 end
 
 Then /^the page should show content "(.*?)"$/ do |expectedText|
