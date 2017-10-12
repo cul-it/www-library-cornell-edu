@@ -34,8 +34,9 @@ When(/I click on the "([^\']+)" link$/) do |linktext|
 end
 
 Then("I should see the CUWebLogin dialog") do
-  #find(:xpath, "id('identity')/h1[contains(text(),'CUWebLogin')]")
-  #expect(page.all(:xpath, "id('identity')/h1")).to have_content('CUWebLogin')
+  wait.until {
+    find(:css, '.input-submit')
+  }
   expect(page.title).to eq('Cornell University Web Login')
 end
 
