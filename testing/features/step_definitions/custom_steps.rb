@@ -8,7 +8,12 @@ require 'capybara/cucumber'
 
 require 'webdrivers'
 require 'selenium-webdriver'
-wait = Selenium::WebDriver::Wait.new(:timeout => 15) # seconds
+
+def wait_for(seconds)
+  # see http://elementalselenium.com/tips/47-waiting
+  # sets maximum time to wait, not wait first, then do it
+  Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
+end
 
 Given("I am testing the correct domain") do
   edomain = ENV['DOMAIN']
@@ -34,7 +39,7 @@ When(/I click on the "([^\']+)" link$/) do |linktext|
 end
 
 Then("I should see the CUWebLogin dialog") do
-  wait.until {
+  wait_for(5) {
     find(:css, '.input-submit')
   }
   expect(page.title).to eq('Cornell University Web Login')
@@ -73,17 +78,17 @@ Then("I enter {string} in the ares search") do |string|
 end
 
 Then("I select the first option from the ares popup") do
-  wait.until {
+  wait_for(5) {
     page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)')
   }
   page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)').click
 end
 
 Then("the ares results should contain {string}") do |string|
-  wait.until {
-    page.all(:xpath, 'id(\'course-reserves-all-inline\')/tbody/tr[2]/td[1]/p/strong')
+  wait_for(60) {
+    page.all(:xpath, 'id(\'course-reserves-all-inline\')/tbody/tr')
+    expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')/tbody')).to have_content(string)
   }
-  expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')')).to have_content(string)
 end
 
 Then("the page title should start with {string}") do |string|
@@ -91,8 +96,8 @@ Then("the page title should start with {string}") do |string|
 end
 
 When("I wait for the ares spinner to stop") do
-  expect(page.find('span#items-spinner-all-inline')).to have_content('Loading...')
-  wait.until {
+  # see https://groups.google.com/d/msg/ruby-capybara/Mz7txv1Sm0U/xBypglg-1roJ
+  wait_for(30) {
     expect(page).not_to have_selector('#items-spinner-all-inline', visible: true)
   }
 end
