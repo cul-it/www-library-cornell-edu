@@ -4,7 +4,7 @@ require 'rspec/expectations'
 require 'capybara/poltergeist'
 
 # Store command line arguments
-$browser_type = ENV['BROWSER'] || 'ff'
+$browser_type = ENV['BROWSER'] || 'chrome'
 $platform = ENV['PLATFORM'] || 'desktop'
 $os_version = ENV['OS_VERSION']
 $device_name = ENV['DEVICE_NAME']
