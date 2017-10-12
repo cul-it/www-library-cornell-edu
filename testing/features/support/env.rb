@@ -58,6 +58,9 @@ else # else create driver instance for desktop browser
         $driver = Capybara
         #$driver.manage().window().maximize()
     else
+        if "#{$browser_type}" == 'chrome'
+          Capybara.default_driver = :selenium_chrome
+        end
         $driver = Selenium::WebDriver.for(:"#{$browser_type}")
         $driver.manage().window().maximize()
     end
