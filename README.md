@@ -2,10 +2,14 @@
 make file for library.cornell.edu
 
 cucumber tests:
-cd testing
+
+```cd testing
 bundle install
 selenium-cucumber gen
 <add tests to /features/*.feature>
+```
+
+```
 bundle exec cucumber
 or
 bundle exec cucumber BROWSER=chrome
@@ -19,7 +23,7 @@ bundle exec cucumber HEADLESS=poltergeist
 (use poltergeist & phantomjs)
 or
 bundle exec cucumber HEADLESS=selenium_chrome_headless
-
+```
 
 start phantomjs:
 phantomjs --webdriver=4444
