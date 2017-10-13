@@ -8,3 +8,4 @@ gem "selenium-cucumber"
 gem "capybara"
 gem "rubyzip"
 gem "poltergeist"
+gem "phantomjs", :require => 'phantomjs/poltergeist'
