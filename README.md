@@ -15,7 +15,11 @@ or
 bundle exec cucumber BROWSER=chrome DOMAIN=production
 (DOMAIN defaults to wwwtest.library.cornell.edu)
 or
-bundle exec cucumber HEADLESS=1
+bundle exec cucumber HEADLESS=poltergeist
+(use poltergeist & phantomjs)
+or
+bundle exec cucumber HEADLESS=selenium_chrome_headless
+
 
 start phantomjs:
 phantomjs --webdriver=4444
