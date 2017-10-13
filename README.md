@@ -23,6 +23,9 @@ bundle exec cucumber HEADLESS=poltergeist
 (use poltergeist & phantomjs)
 or
 bundle exec cucumber HEADLESS=selenium_chrome_headless
+or
+bundle exec cucumber HEADLESS=headless_chrome
+
 ```
 
 start phantomjs:
