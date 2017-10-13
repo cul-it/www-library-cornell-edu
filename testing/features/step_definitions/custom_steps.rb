@@ -129,11 +129,20 @@ Then("the catalog search should suggest {string}") do |string|
   }
 end
 
-Then("I should see the hours listing for {string}") do |string|
+Then("I should see the hours listing for {string} with {string}") do |string, string2|
   wait_for(5) {
-    within(page.find(:xpath,"//a/h2[text()='#{string}']").find(:xpath, '../..')) {
-      expect(find(".today-hours").text).not_to be_empty
+    within(page.find(:xpath,"//a/h2[text()='#{string}']").find(:xpath, '../../..')) {
+      if string2 == true
+        expect(find(".today-hours").text).not_to be_empty
+      end
+      check_image(:css, '.library-thumbnail img')
     }
   }
 end
 
+Then("I should see the table of {string} hours") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+  expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
+  expect(page.find(:xpath, "//td[8]/span")).not_to be_empty
+  expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
+end
