@@ -14,6 +14,31 @@ def wait_for(seconds)
   Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
 end
 
+def check_image(type, type_path)
+  # https://stackoverflow.com/questions/10109680/how-to-test-if-an-img-tag-points-to-an-existing-image
+  # you can't actually check response codes in Capybara, though it works for :poltergeist
+  # Capybara::NotSupportedByDriverError for :chrome :selenium_chrome_headless
+  img = find(type, type_path)
+  if Capybara.current_driver == :poltergeist
+    visit img[:src]
+    #expect(page).not_to have_content('Not Found')
+    expect(page.status_code).to be(200)
+  else
+    puts 'check_image unsupported on this driver'
+  end
+end
+
+def what_is(element)
+  puts "\n********************* what is V\n"
+  puts element.inspect
+  puts element['innerHTML']
+  puts "\n********************* what is ^\n"
+end
+
+def sleep_for(sec)
+  sleep sec.to_i
+end
+
 Given("I am testing the correct domain") do
   edomain = ENV['DOMAIN']
   case "#{edomain}"
