@@ -10,12 +10,33 @@ Feature: Library Hours
     Then the page title should start with "Libraries and Hours"
 
   @hours_libraries_listing
-  Scenario Outline: All the libraries should be listed on the hours page
+  Scenario Outline: All the libraries' hours should be available on the hours page
     Given I visit page "libraries"
-    Then I should see the hours listing for "<library>"
+      And I should see the hours listing for "<library>" with "<hours-listed>"
+      And I click on the "<library>" link
+    Then the page title should start with "<library>"
+      And I should see the table of "<library>" hours
 
     Examples:
-      | library |
-      | Africana Library |
-      | Olin Library |
-      | Medical Library |
+      | library | hours-listed |
+      | Africana Library | true |
+      | Engineering Library | true |
+      | Fine Arts Library | true |
+      | Industrial and Labor Relations Library | true |
+      | Kroch Library, Division of Asia Collections | true |
+      | Kroch Library, Division of Rare & Manuscript Collections | true |
+      | Law Library | true |
+      | Library Annex | true |
+      | Management Library | true |
+      | Mann Library | true |
+      | Mathematics Library | true |
+      | Medical Center Archives | false |
+      | Medical Library | false |
+      | Music Library | true |
+      | Olin Library | true |
+      | Ornithology Library | true |
+      | Physical Sciences Library (Edna McConnell Clark Library) | true |
+      | School of Hotel Administration Library | true |
+      | Uris Library | true |
+      | Veterinary Library | true |
+
