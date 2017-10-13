@@ -97,9 +97,16 @@ When("I search the catalog for {string}") do |string|
 end
 
 Then("the catalog search should suggest {string}") do |string|
-  puts "ui-id-2: " + page.all(:id, 'ui-id-2').inspect
   wait_for(5) {
     expect(page.find(:id, 'ui-id-2').text).to have_content(string)
+  }
+end
+
+Then("I should see the hours listing for {string}") do |string|
+  wait_for(5) {
+    within(page.find(:xpath,"//a/h2[text()='#{string}']").find(:xpath, '../..')) {
+      expect(find(".today-hours").text).not_to be_empty
+    }
   }
 end
 
