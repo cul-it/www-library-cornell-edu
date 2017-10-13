@@ -49,9 +49,7 @@ else # else create driver instance for desktop browser
       # headless tests with poltergeist/PhantomJS
       options = {js_errors: false, window_size: [1280, 1024], debug: false}
       Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(
-          app, options
-        )
+        Capybara::Poltergeist::Driver.new(app, options)
       end
       Capybara.default_driver    = :poltergeist
       Capybara.javascript_driver = :poltergeist
@@ -64,7 +62,15 @@ else # else create driver instance for desktop browser
       end
       Capybara.default_driver    = :selenium_chrome_headless
       Capybara.javascript_driver = :headless_chrome
+    when "headless_chrome"
+      Capybara.register_driver :headless_chrome do |app|
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: %w(headless disable-gpu) })
+        Capybara::Selenium::Driver.new app,
+          browser: :chrome,
+          desired_capabilities: capabilities
       end
+      Capybara.default_driver    = :headless_chrome
+      Capybara.javascript_driver = :headless_chrome
       $driver = Selenium::WebDriver.for(:"#{$browser_type}")
       $driver.manage().window().maximize()
     end
