@@ -54,8 +54,10 @@ Given("I go to the home page") do
 end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
-  target = "#{@url[:domain]}" + "/#{sitepage}"
-  visit "#{target}"
+  wait_for(20) {
+    target = "#{@url[:domain]}" + "/#{sitepage}"
+    visit "#{target}"
+  }
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
