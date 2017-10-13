@@ -49,21 +49,35 @@ else # else create driver instance for desktop browser
       # headless tests with poltergeist/PhantomJS
       options = {js_errors: false, window_size: [1280, 1024], debug: false}
       Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(
-          app, options
-        )
+        Capybara::Poltergeist::Driver.new(app, options)
       end
       Capybara.default_driver    = :poltergeist
       Capybara.javascript_driver = :poltergeist
     when "selenium_chrome_headless"
-      Capybara.default_driver = :selenium_chrome_headless
-      Capybara.javascript_driver = :headless_chrome
-      $driver = Selenium::WebDriver.for(:chrome)
-      $driver.manage().window().maximize()
-    else
-      if "#{$browser_type}" == 'chrome'
-        Capybara.default_driver = :selenium_chrome
+      Capybara.register_driver :selenium_chrome_headless do |app|
+        browser_options = ::Selenium::WebDriver::Chrome::Options.new()
+        browser_options.args << '--headless'
+        browser_options.args << '--disable-gpu'
+        Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
       end
+      Capybara.default_driver    = :selenium_chrome_headless
+      Capybara.javascript_driver = :headless_chrome
+    when "headless_chrome"
+      Capybara.register_driver :headless_chrome do |app|
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: %w(headless disable-gpu) })
+        Capybara::Selenium::Driver.new app,
+          browser: :chrome,
+          desired_capabilities: capabilities
+      end
+      Capybara.default_driver    = :headless_chrome
+      Capybara.javascript_driver = :headless_chrome
+    when nil
+      Capybara.register_driver :chrome do |app|
+        Capybara::Selenium::Driver.new(app, browser: :chrome)
+      end
+      Capybara.default_driver    = :chrome
+      Capybara.javascript_driver = :headless_chrome
+    else
       $driver = Selenium::WebDriver.for(:"#{$browser_type}")
       $driver.manage().window().maximize()
     end

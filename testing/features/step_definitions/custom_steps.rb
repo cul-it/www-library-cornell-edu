@@ -14,6 +14,31 @@ def wait_for(seconds)
   Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
 end
 
+def check_image(type, type_path)
+  # https://stackoverflow.com/questions/10109680/how-to-test-if-an-img-tag-points-to-an-existing-image
+  # you can't actually check response codes in Capybara, though it works for :poltergeist
+  # Capybara::NotSupportedByDriverError for :chrome :selenium_chrome_headless
+  img = find(type, type_path)
+  if Capybara.current_driver == :poltergeist
+    visit img[:src]
+    #expect(page).not_to have_content('Not Found')
+    expect(page.status_code).to be(200)
+  else
+    puts 'check_image unsupported on this driver'
+  end
+end
+
+def what_is(element)
+  puts "\n********************* what is V\n"
+  puts element.inspect
+  puts element['innerHTML']
+  puts "\n********************* what is ^\n"
+end
+
+def sleep_for(sec)
+  sleep sec.to_i
+end
+
 Given("I am testing the correct domain") do
   edomain = ENV['DOMAIN']
   case "#{edomain}"
@@ -29,12 +54,16 @@ Given("I go to the home page") do
 end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
-  target = "#{@url[:domain]}" + "/#{sitepage}"
-  visit "#{target}"
+  wait_for(20) {
+    target = "#{@url[:domain]}" + "/#{sitepage}"
+    visit "#{target}"
+  }
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
-  first(:xpath,"//a[normalize-space()='#{linktext}']").click
+  wait_for(20) {
+    first(:xpath,"//a[normalize-space()='#{linktext}']").click
+  }
 end
 
 Then("I should see the CUWebLogin dialog") do
@@ -102,11 +131,20 @@ Then("the catalog search should suggest {string}") do |string|
   }
 end
 
-Then("I should see the hours listing for {string}") do |string|
+Then("I should see the hours listing for {string} with {string}") do |string, string2|
   wait_for(5) {
-    within(page.find(:xpath,"//a/h2[text()='#{string}']").find(:xpath, '../..')) {
-      expect(find(".today-hours").text).not_to be_empty
+    within(page.find(:xpath,"//a/h2[text()='#{string}']").find(:xpath, '../../..')) {
+      if string2 == true
+        expect(find(".today-hours").text).not_to be_empty
+      end
+      check_image(:css, '.library-thumbnail img')
     }
   }
 end
 
+Then("I should see the table of {string} hours") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+  expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
+  expect(page.find(:xpath, "//td[8]/span")).not_to be_empty
+  expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
+end
