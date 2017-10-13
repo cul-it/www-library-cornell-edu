@@ -56,13 +56,14 @@ else # else create driver instance for desktop browser
       Capybara.default_driver    = :poltergeist
       Capybara.javascript_driver = :poltergeist
     when "selenium_chrome_headless"
-      Capybara.default_driver = :selenium_chrome_headless
+      Capybara.register_driver :selenium_chrome_headless do |app|
+        browser_options = ::Selenium::WebDriver::Chrome::Options.new()
+        browser_options.args << '--headless'
+        browser_options.args << '--disable-gpu'
+        Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+      end
+      Capybara.default_driver    = :selenium_chrome_headless
       Capybara.javascript_driver = :headless_chrome
-      $driver = Selenium::WebDriver.for(:chrome)
-      $driver.manage().window().maximize()
-    else
-      if "#{$browser_type}" == 'chrome'
-        Capybara.default_driver = :selenium_chrome
       end
       $driver = Selenium::WebDriver.for(:"#{$browser_type}")
       $driver.manage().window().maximize()
