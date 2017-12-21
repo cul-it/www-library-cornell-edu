@@ -30,7 +30,7 @@ Feature: Login Required Pages
     Then I should see the CUWebLogin dialog
 
   @test
-  Scenario: I want to test
+  Scenario: I want to test My Account
     Given I go to the home page
     Then I go to page "myacct"
     Then I wait for 1 sec
