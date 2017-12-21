@@ -44,6 +44,8 @@ Given("I am testing the correct domain") do
   case "#{edomain}"
   when "production"
     @url = {:domain => 'https://www.library.cornell.edu'}
+  when "test"
+    @url = {:domain => 'https://main1.test.library.cornell.edu'}
   else
     @url = {:domain => 'https://wwwtest.library.cornell.edu'}
   end
@@ -54,7 +56,7 @@ Given("I go to the home page") do
 end
 
 Then /^I go to page "(.*?)"$/ do |sitepage|
-  wait_for(20) {
+  wait_for(40) {
     target = "#{@url[:domain]}" + "/#{sitepage}"
     visit "#{target}"
   }
