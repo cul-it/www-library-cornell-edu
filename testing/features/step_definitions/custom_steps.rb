@@ -57,7 +57,7 @@ Given("I go to the home page") do
   visit "#{@url[:domain]}"
 end
 
-Then /^I go to page "(.*?)"$/ do |sitepage|
+Then /^I go to page (.*?)$/ do |sitepage|
   wait_for(40) {
     target = "#{@url[:domain]}" + "/#{sitepage}"
     visit "#{target}"
