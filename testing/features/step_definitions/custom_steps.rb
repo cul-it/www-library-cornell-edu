@@ -152,3 +152,7 @@ Then("I should see the table of {string} hours") do |string|
   expect(page.find(:xpath, "//td[8]/span")).not_to be_empty
   expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
 end
+
+Then /^wait for (.*) seconds$/ do |sec|
+  sleep_for(sec)
+end
