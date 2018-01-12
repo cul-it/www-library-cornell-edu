@@ -46,6 +46,8 @@ Given("I am testing the correct domain") do
     @url = {:domain => 'https://www.library.cornell.edu'}
   when "test"
     @url = {:domain => 'https://main1.test.library.cornell.edu'}
+  when "dev"
+    @url = {:domain => 'https://dev-wwwlibrarycornelledu.pantheonsite.io'} 
   else
     @url = {:domain => 'https://wwwtest.library.cornell.edu'}
   end
@@ -55,7 +57,7 @@ Given("I go to the home page") do
   visit "#{@url[:domain]}"
 end
 
-Then /^I go to page "(.*?)"$/ do |sitepage|
+Then /^I go to page (.*?)$/ do |sitepage|
   wait_for(40) {
     target = "#{@url[:domain]}" + "/#{sitepage}"
     visit "#{target}"
@@ -69,7 +71,7 @@ When(/I click on the "([^\']+)" link$/) do |linktext|
 end
 
 Then("I should see the CUWebLogin dialog") do
-  wait_for(5) {
+  wait_for(40) {
     find(:css, '.input-submit')
   }
   expect(page.title).to eq('Cornell University Web Login')
@@ -149,4 +151,8 @@ Then("I should see the table of {string} hours") do |string|
   expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
   expect(page.find(:xpath, "//td[8]/span")).not_to be_empty
   expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
+end
+
+Then /^wait for (.*) seconds$/ do |sec|
+  sleep_for(sec)
 end
