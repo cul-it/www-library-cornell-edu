@@ -46,6 +46,8 @@ Given("I am testing the correct domain") do
     @url = {:domain => 'https://www.library.cornell.edu'}
   when "test"
     @url = {:domain => 'https://main1.test.library.cornell.edu'}
+  when "dev"
+    @url = {:domain => 'https://dev-wwwlibrarycornelledu.pantheonsite.io'} 
   else
     @url = {:domain => 'https://wwwtest.library.cornell.edu'}
   end
