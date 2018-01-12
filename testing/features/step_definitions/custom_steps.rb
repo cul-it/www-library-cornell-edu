@@ -71,7 +71,7 @@ When(/I click on the "([^\']+)" link$/) do |linktext|
 end
 
 Then("I should see the CUWebLogin dialog") do
-  wait_for(5) {
+  wait_for(40) {
     find(:css, '.input-submit')
   }
   expect(page.title).to eq('Cornell University Web Login')
