@@ -29,9 +29,19 @@ Feature: Login Required Pages
       And I click on the "COAP Application for Funding" link
     Then I should see the CUWebLogin dialog
 
-  @test
-  Scenario: I want to test My Account
+  @login_elevator_art
+  Scenario: Elevator art contest requires CUWebLogin
     Given I go to the home page
-    Then I go to page "myacct"
-    Then I wait for 1 sec
-    Then the page should show content "My Account"
+      And I go to page elevator-art
+    Then I should see the CUWebLogin dialog
+
+  @login_recommend_a_purchase
+  Scenario: Elevator art contest requires CUWebLogin
+    Given I go to the home page
+      And I click on the "Services" link
+      And I click on the "Borrow Direct, Interlibrary Loan (ILL) and Material Requests" link
+      And I click on the "Recommend a Purchase" link
+      Then wait for 10 seconds
+      Then show me the page
+    Then I should see the CUWebLogin dialog
+ 
