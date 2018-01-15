@@ -35,8 +35,8 @@ Feature: Login Required Pages
   @login_elevator_art
   Scenario: Elevator art contest requires CUWebLogin
     Given I go to the home page
-      And I go to page elevator-art
-    Then I should see the CUWebLogin dialog
+      And I visit page "elevator-art"
+    Then I should be asked to login
 
   @login_recommend_a_purchase
   Scenario: Elevator art contest requires CUWebLogin
