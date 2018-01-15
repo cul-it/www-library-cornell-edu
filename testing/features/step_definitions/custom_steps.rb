@@ -44,24 +44,22 @@ Given("I am testing the correct domain") do
   case "#{edomain}"
   when "production"
     @url = {:domain => 'https://www.library.cornell.edu'}
-  when "test"
+  when "test_v02"
     @url = {:domain => 'https://main1.test.library.cornell.edu'}
   when "dev"
     @url = {:domain => 'https://dev-wwwlibrarycornelledu.pantheonsite.io'} 
+  when "test"
+    @url = {:domain => 'https://test-wwwlibrarycornelledu.pantheonsite.io'} 
+  when "live"
+    @url = {:domain => 'https://live-wwwlibrarycornelledu.pantheonsite.io'} 
   else
     @url = {:domain => 'https://wwwtest.library.cornell.edu'}
   end
+  puts @url[:domain]
 end
 
 Given("I go to the home page") do
   visit "#{@url[:domain]}"
-end
-
-Then /^I go to page (.*?)$/ do |sitepage|
-  wait_for(40) {
-    target = "#{@url[:domain]}" + "/#{sitepage}"
-    visit "#{target}"
-  }
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
