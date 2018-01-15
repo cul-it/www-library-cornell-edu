@@ -17,8 +17,9 @@ Feature: Login Required Pages
     Then I should be asked to login
 
   @login_coap_application
-  Scenario: COAP Application requires CUWebLogin
-    Given I go to the home page
+  Scenario: COAP Application requires CUWebLogin    
+    Given PENDING : applications are currently closed, so skip the login test
+      And I go to the home page
       And I click on the "About Us" link
       And I click on the "subject librarians" link
       And I click on the "Cornell Open Access Publication Fund" link
