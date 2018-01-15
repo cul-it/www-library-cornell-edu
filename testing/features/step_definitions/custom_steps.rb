@@ -44,24 +44,22 @@ Given("I am testing the correct domain") do
   case "#{edomain}"
   when "production"
     @url = {:domain => 'https://www.library.cornell.edu'}
-  when "test"
+  when "test_v02"
     @url = {:domain => 'https://main1.test.library.cornell.edu'}
   when "dev"
     @url = {:domain => 'https://dev-wwwlibrarycornelledu.pantheonsite.io'} 
+  when "test"
+    @url = {:domain => 'https://test-wwwlibrarycornelledu.pantheonsite.io'} 
+  when "live"
+    @url = {:domain => 'https://live-wwwlibrarycornelledu.pantheonsite.io'} 
   else
     @url = {:domain => 'https://wwwtest.library.cornell.edu'}
   end
+  puts @url[:domain]
 end
 
 Given("I go to the home page") do
   visit "#{@url[:domain]}"
-end
-
-Then /^I go to page (.*?)$/ do |sitepage|
-  wait_for(40) {
-    target = "#{@url[:domain]}" + "/#{sitepage}"
-    visit "#{target}"
-  }
 end
 
 When(/I click on the "([^\']+)" link$/) do |linktext|
@@ -147,12 +145,27 @@ Then("I should see the hours listing for {string} with {string}") do |string, st
 end
 
 Then("I should see the table of {string} hours") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-  expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
-  expect(page.find(:xpath, "//td[8]/span")).not_to be_empty
-  expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
+  within(page.find(:css, "table.s-lc-whw")) {
+    expect(find(:css, "td.s-lc-whw-locname")).to have_content(string)
+  }
+  #expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
+  #expect(page.find(:xpath, "//td[0]")).to have_content(string)
+  #expect(page.find(:xpath, "//td[8]/span")).to match(/^.{1,}$/);
+  #expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
 end
 
 Then /^wait for (.*) seconds$/ do |sec|
   sleep_for(sec)
+end
+
+Then("I should be asked to login") do
+  expect(page.find(:css, "div.alert").text).to have_content("You must login")
+end
+
+Then("I should see {string}") do |string|
+  expect(page).to have_content(string)
+end
+
+Given /^PENDING/ do
+  pending
 end

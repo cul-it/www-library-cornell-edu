@@ -20,23 +20,23 @@ Feature: Library Hours
     Examples:
       | library | hours-listed |
       | Africana Library | true |
-      | Engineering Library | true |
+      #| Engineering Library | true |
       | Fine Arts Library | true |
       | Industrial and Labor Relations Library | true |
       | Kroch Library, Division of Asia Collections | true |
       | Kroch Library, Division of Rare & Manuscript Collections | true |
-      | Law Library | true |
+      #| Law Library | true |
       | Library Annex | true |
       | Management Library | true |
       | Mann Library | true |
       | Mathematics Library | true |
-      | Medical Center Archives | false |
-      | Medical Library | false |
+      #| Medical Center Archives | false |
+      #| Medical Library | false |
       | Music Library | true |
       | Olin Library | true |
       | Ornithology Library | true |
-      | Physical Sciences Library (Edna McConnell Clark Library) | true |
-      | School of Hotel Administration Library | true |
+      #| Physical Sciences Library (Edna McConnell Clark Library) | true |
+      #| School of Hotel Administration Library | true |
       | Uris Library | true |
       | Veterinary Library | true |
 
