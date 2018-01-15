@@ -162,4 +162,7 @@ Then("I should be asked to login") do
   expect(page.find(:css, "div.alert").text).to have_content("You must login")
 end
 
+Then("I should see {string}") do |string|
+  expect(page).to have_content(string)
+end
 end
