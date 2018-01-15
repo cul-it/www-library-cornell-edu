@@ -26,6 +26,12 @@ Feature: Login Required Pages
       And I click on the "COAP Application for Funding" link
     Then I should see the CUWebLogin dialog
 
+  @login_coap_application_blocked
+  Scenario: COAP Application is Not Available
+    Given I go to the home page
+      And I visit page "about/collections/coap/application"
+    Then I should see "Submissions for this form are closed."
+
   @login_elevator_art
   Scenario: Elevator art contest requires CUWebLogin
     Given I go to the home page
