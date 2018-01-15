@@ -157,3 +157,9 @@ end
 Then /^wait for (.*) seconds$/ do |sec|
   sleep_for(sec)
 end
+
+Then("I should be asked to login") do
+  expect(page.find(:css, "div.alert").text).to have_content("You must login")
+end
+
+end
