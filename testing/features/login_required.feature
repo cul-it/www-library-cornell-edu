@@ -13,12 +13,8 @@ Feature: Login Required Pages
   @login_coap_contact
   Scenario: COAP Contact requires CUWebLogin
     Given I go to the home page
-      And I click on the "About Us" link
-      And I click on the "subject librarians" link
-      And I click on the "Cornell Open Access Publication Fund" link
-      And I click on the "COAP Contact" link
-      And I click on the "this form" link
-    Then I should see the CUWebLogin dialog
+      And I visit page "about/collections/coap/contact/form"
+    Then I should be asked to login
 
   @login_coap_application
   Scenario: COAP Application requires CUWebLogin
