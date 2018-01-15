@@ -39,12 +39,10 @@ Feature: Login Required Pages
     Then I should be asked to login
 
   @login_recommend_a_purchase
-  Scenario: Elevator art contest requires CUWebLogin
+  Scenario: Recommend a Purchase requires CUWebLogin
     Given I go to the home page
       And I click on the "Services" link
       And I click on the "Borrow Direct, Interlibrary Loan (ILL) and Material Requests" link
       And I click on the "Recommend a Purchase" link
-      Then wait for 10 seconds
-      Then show me the page
-    Then I should see the CUWebLogin dialog
+    Then I should be asked to login
  
