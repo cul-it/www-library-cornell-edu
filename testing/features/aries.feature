@@ -7,9 +7,11 @@ Feature: ares course reserves
   Scenario: Load Ares cache for the other commands
     Given I go to the home page
     When I visit page "ares/search"
-      And I search ares for "PSYCH"
+      And I search ares for "wine"
+      And I do not see complaints about javascript
+      And I do not see No current course reserve items were found.
       And I wait for the ares spinner to stop
-    Then the ares results should contain "Uris Library Reserve"
+    Then there should be at least one ares result
 
   @ares_popup
   Scenario: Check the autofill function of the front page popup
