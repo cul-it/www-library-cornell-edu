@@ -73,7 +73,8 @@ Then("I should see the CUWebLogin dialog") do
   wait_for(40) {
     find(:css, '.input-submit')
   }
-  expect(page.title).to eq('Cornell University Web Login')
+  expect(page).to have_content('CUWebLogin')
+  expect(page).to have_content("Cornell University's central authentication service")
 end
 
 Then /^show me the page$/ do
