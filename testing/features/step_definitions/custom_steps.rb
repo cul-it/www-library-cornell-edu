@@ -159,10 +159,6 @@ Then("I should see the table of {string} hours") do |string|
   within(page.find(:css, "table.s-lc-whw")) {
     expect(find(:css, "td.s-lc-whw-locname")).to have_content(string)
   }
-  #expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
-  #expect(page.find(:xpath, "//td[0]")).to have_content(string)
-  #expect(page.find(:xpath, "//td[8]/span")).to match(/^.{1,}$/);
-  #expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
 end
 
 Then /^wait for (.*) seconds$/ do |sec|
