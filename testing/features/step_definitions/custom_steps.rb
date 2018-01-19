@@ -88,8 +88,8 @@ Then /^the page should show content "(.*?)"$/ do |expectedText|
 end
 
 Then /^I search ares for "(.*?)"$/ do |searchstring|
-  fill_in 'search_box', with: searchstring
-  page.find('#edit-submit').click
+  fill_in 'search_box', with: "#{searchstring}\n"
+  #page.find('#edit-submit').click
 end
 
 Then /^I visit page "(.*?)"$/ do |sitepage|
