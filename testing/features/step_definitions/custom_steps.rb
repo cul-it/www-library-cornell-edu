@@ -182,4 +182,7 @@ When("I do not see complaints about javascript") do
   expect(page).not_to have_content('Javascript')
   expect(page).not_to have_content('enable')
 end
+
+When("I do not see No current course reserve items were found.") do
+  expect(page).not_to have_content('No current course reserve items were found.')
 end
