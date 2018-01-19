@@ -8,6 +8,7 @@ require 'capybara/cucumber'
 require 'webdrivers'
 require 'selenium-webdriver'
 
+
 def wait_for(seconds)
   # see http://elementalselenium.com/tips/47-waiting
   # sets maximum time to wait, not wait first, then do it
