@@ -8,6 +8,7 @@ require 'capybara/cucumber'
 require 'webdrivers'
 require 'selenium-webdriver'
 
+
 def wait_for(seconds)
   # see http://elementalselenium.com/tips/47-waiting
   # sets maximum time to wait, not wait first, then do it
@@ -72,7 +73,8 @@ Then("I should see the CUWebLogin dialog") do
   wait_for(40) {
     find(:css, '.input-submit')
   }
-  expect(page.title).to eq('Cornell University Web Login')
+  expect(page).to have_content('CUWebLogin')
+  expect(page).to have_content("Cornell University's central authentication service")
 end
 
 Then /^show me the page$/ do
@@ -86,8 +88,8 @@ Then /^the page should show content "(.*?)"$/ do |expectedText|
 end
 
 Then /^I search ares for "(.*?)"$/ do |searchstring|
-  fill_in 'search_box', with: searchstring
-  page.find('#edit-submit').click
+  fill_in 'search_box', with: "#{searchstring}\n"
+  #page.find('#edit-submit').click
 end
 
 Then /^I visit page "(.*?)"$/ do |sitepage|
@@ -109,6 +111,15 @@ end
 Then("the ares results should contain {string}") do |string|
   wait_for(150) {
     expect(page.find(:xpath, 'id(\'course-reserves-all-inline\')')).to have_content(string)
+  }
+end
+
+Then("there should be at least one ares result") do
+  wait_for(250) {
+    page.first('td.ares-title')
+    page.first('td.ares-author')
+    page.first('td.ares-location-complete')
+    page.first('td.ares-status')
   }
 end
 
@@ -148,10 +159,6 @@ Then("I should see the table of {string} hours") do |string|
   within(page.find(:css, "table.s-lc-whw")) {
     expect(find(:css, "td.s-lc-whw-locname")).to have_content(string)
   }
-  #expect(page.find(:xpath, "//table/caption")).to have_content('Display of Opening hours')
-  #expect(page.find(:xpath, "//td[0]")).to have_content(string)
-  #expect(page.find(:xpath, "//td[8]/span")).to match(/^.{1,}$/);
-  #expect(page.find(:css, "td.s-lc-wh-locname")).to have_content(string)
 end
 
 Then /^wait for (.*) seconds$/ do |sec|
@@ -168,4 +175,14 @@ end
 
 Given /^PENDING/ do
   pending
+end
+
+When("I do not see complaints about javascript") do
+  expect(page).not_to have_css('div.antibot-no-js')
+  expect(page).not_to have_content('Javascript')
+  expect(page).not_to have_content('enable')
+end
+
+When("I do not see No current course reserve items were found.") do
+  expect(page).not_to have_content('No current course reserve items were found.')
 end
