@@ -114,6 +114,15 @@ Then("the ares results should contain {string}") do |string|
   }
 end
 
+Then("there should be at least one ares result") do
+  wait_for(250) {
+    page.first('td.ares-title')
+    page.first('td.ares-author')
+    page.first('td.ares-location-complete')
+    page.first('td.ares-status')
+  }
+end
+
 Then("the page title should start with {string}") do |string|
   expect(page.title).to start_with(string)
 end
