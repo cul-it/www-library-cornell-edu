@@ -175,6 +175,7 @@ end
 
 Then("I should be asked to login") do
   expect(page.find(:css, "div.alert").text).to have_content("You must login")
+  expect(page.find(:css, "section#block-login-tools-login-tools").text).to have_content("Cornell login required")
 end
 
 Then("I should see {string}") do |string|
