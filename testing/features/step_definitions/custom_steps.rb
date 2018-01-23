@@ -101,6 +101,14 @@ Then("I enter {string} in the ares search") do |string|
   page.find_by_id('search_box').send_keys string
 end
 
+Then("the ares popup should contain {string}") do |string|
+  wait_for(150) {
+    # puts page.html
+    # puts 'text above'
+    expect(page.find('.dropdown').text).to have_content("#{string}")
+  }
+end
+
 Then("I select the first option from the ares popup") do
   wait_for(5) {
     page.find('.dropdown-menu > li:nth-child(1) > a:nth-child(1)')
