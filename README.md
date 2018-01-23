@@ -34,3 +34,4 @@ bundle exec cucumber HEADLESS=headless_chrome
 
 start phantomjs:
 phantomjs --webdriver=4444
+bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags ~@ares
