@@ -32,6 +32,18 @@ bundle exec cucumber HEADLESS=headless_chrome
 
 ```
 
-start phantomjs:
-phantomjs --webdriver=4444
+Possible DOMAIN values:
+production -> www.library.cornell.edu
+dev -> dev-wwwlibrarycornelledu.pantheonsite.io
+test -> test-wwwlibrarycornelledu.pantheonsite.io
+live -> live-wwwlibrarycornelledu.pantheonsite.io
+
+```
+Suggested tests:
+
+With Antibot disabled:
+bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test
+bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags @ares
+
+With Antibot enabled:
 bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags ~@ares
