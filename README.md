@@ -21,6 +21,10 @@ bundle exec cucumber BROWSER=chrome DOMAIN=production
 or
 bundle exec cucumber HEADLESS=poltergeist
 (use poltergeist & phantomjs)
+
+start phantomjs:
+phantomjs --webdriver=4444
+
 or
 bundle exec cucumber HEADLESS=selenium_chrome_headless
 or
