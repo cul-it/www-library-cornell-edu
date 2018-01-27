@@ -195,3 +195,35 @@ end
 When("I do not see No current course reserve items were found.") do
   expect(page).not_to have_content('No current course reserve items were found.')
 end
+
+Given("I enter {string} for field {string}") do |string, string2|
+  fill_in(string2, :with => string)
+end
+
+Given("I select {string} from popup {string}") do |string, string2|
+  page.select string, from: string2
+end
+
+Given("I enter test email question with sequence {string} and tag {string}") do |string, string2|
+  fill_in("edit-submitted-your-question", :with => "This is a test email from a web form on www.library.cornell.edu. If you see this email, please reply 'Got it' (or some such thing), so we'll know it's working. After that, please delete it so no one else is bothered. Thanks. -JGReidy [webform-email-test;#{string};#{string2}]")
+end
+
+Then("I hit Submit") do
+  # https://www.drupal.org/project/webform/issues/2906236
+  # Honeypot complains if it took less than 5 sconds to fill out the form
+  sleep_for(6)
+  click_button("Submit")
+end
+
+Then ("I should not see a problem with submission message") do
+  # Honeypot complaint
+  wait_for(15) {
+    expect(page).not_to have_content("problem with your form submission")
+  }
+end
+
+Then ("I should see a thank you message") do
+  wait_for(15) {
+    expect(page.find(:css, "div.alert-success")).to have_content("Thank you")
+  }
+end
