@@ -12,7 +12,7 @@ Feature: Some webforms should send emails after submit
         And I enter "cul-web-test-confirm@cornell.edu" for field "edit-submitted-your-email-address"
         And I select "Cornell Staff" from popup "edit-submitted-status"
         And I select "<library>" from popup "edit-submitted-library"
-        And I enter test email question with sequence "19" and tag "<elist>"
+        And I enter test email question into "edit-submitted-your-question" with sequence "19" and tag "<elist>"
         And I hit Submit
     Then I should not see a problem with submission message
         And I should see a thank you message

@@ -204,8 +204,8 @@ Given("I select {string} from popup {string}") do |string, string2|
   page.select string, from: string2
 end
 
-Given("I enter test email question with sequence {string} and tag {string}") do |string, string2|
-  fill_in("edit-submitted-your-question", :with => "This is a test email from a web form on www.library.cornell.edu. If you see this email, please reply 'Got it' (or some such thing), so we'll know it's working. After that, please delete it so no one else is bothered. Thanks. -JGReidy [webform-email-test;#{string};#{string2}]")
+Given("I enter test email question into {string} with sequence {string} and tag {string}") do |string, string2, string3|
+  fill_in("#{string}", :with => "This is a test email from a web form on www.library.cornell.edu. If you see this email, please reply 'Got it' (or some such thing), so we'll know it's working. After that, please delete it so no one else is bothered. Thanks. -JGReidy [webform-email-test;#{string2};#{string3}]")
 end
 
 Then("I hit Submit") do
