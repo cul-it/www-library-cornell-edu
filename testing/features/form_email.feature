@@ -75,7 +75,7 @@ Feature: Some webforms should send emails after submit
       | musicref@cornell.edu | Music Library |
       | rls-instruct-l@cornell.edu | Olin Library (Humanities and Social Sciences) |
       | pslref@cornell.edu | Physical Sciences Library |
-      | rls-instruct-l@cornell.edu | libUris Library (Humanities and Social Sciences) |
+      | rls-instruct-l@cornell.edu | Uris Library (Humanities and Social Sciences) |
       | vetref@cornell.edu | Veterinary Library |
       | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City |
       | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
