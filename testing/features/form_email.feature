@@ -79,3 +79,27 @@ Feature: Some webforms should send emails after submit
       | vetref@cornell.edu | Veterinary Library |
       | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City |
       | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
+
+  @email_still_unable_to_connect
+  # https://www.library.cornell.edu/still-not-able-connect
+  Scenario Outline: Still Not Able to Connect? form email test
+    Given PENDING : Still Not Able to Connect still needs email updates
+    Given I visit page "still-not-able-connect"
+        And I do not see complaints about javascript
+        And I select "other" from popup "edit-submitted-os"
+        And I select "AOL" from popup "edit-submitted-your-internet-connection"
+        And I select "Chrome" from popup "edit-submitted-what-kind-of-web-browser-are-you-using"
+        And I enter "Webform Email Test" for field "edit-submitted-which-resource-are-you-having-problems-with"
+        And I enter "Testing webform email." for field "edit-submitted-what-was-the-error-message-you-received"
+        And I enter test email question into "edit-submitted-other-info" with sequence "21" and tag "<elist>"
+        And I enter "James Reidy" for field "edit-submitted-your-name"
+        And I enter "cul-web-test-confirm@cornell.edu" for field "edit-submitted-your-e-mail-address"
+        And I select "<library>" from popup "edit-submitted-library"
+        And I submit by hitting button "Send to selected library"
+    Then I should not see a problem with submission message
+        And I should see a thank you message
+
+    Examples:
+      | elist | library |
+      | cul-web-test@cornell.edu | Test |
+
