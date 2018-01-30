@@ -215,6 +215,13 @@ Then("I hit Submit") do
   click_button("Submit")
 end
 
+Then("I submit by hitting button {string}") do |string|
+  # https://www.drupal.org/project/webform/issues/2906236
+  # Honeypot complains if it took less than 5 sconds to fill out the form
+  sleep_for(6)
+  click_button(string)
+end
+
 Then ("I should not see a problem with submission message") do
   # Honeypot complaint
   wait_for(15) {
