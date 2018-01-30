@@ -83,7 +83,6 @@ Feature: Some webforms should send emails after submit
   @email_still_unable_to_connect
   # https://www.library.cornell.edu/still-not-able-connect
   Scenario Outline: Still Not Able to Connect? form email test
-    Given PENDING : Still Not Able to Connect still needs email updates
     Given I visit page "still-not-able-connect"
         And I do not see complaints about javascript
         And I select "other" from popup "edit-submitted-os"
@@ -101,7 +100,27 @@ Feature: Some webforms should send emails after submit
 
     Examples:
       | elist | library |
-      | cul-web-test@cornell.edu | Test |
+      | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology |
+      | Africana_Library@cornell.edu | Africana Library |
+      | engrref@cornell.edu | Engineering Library |
+      | entomologylib@cornell.edu | Entomology Library |
+      | fineartsref@cornell.edu | Fine Arts Library |
+      | lib@nysaes.cornell.edu | Geneva Library |
+      | hotellibrary@cornell.edu | Hotel Library |
+      | ilrref@cornell.edu | Industrial & Labor Relations Library |
+      | asiaref@cornell.edu | Kroch Library (Asia) |
+      | rareref@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections) |
+      | library@law.mail.cornell.edu | Law Library |
+      | mgtref@cornell.edu | Management Library |
+      | mann-ref@cornell.edu | Mann Library (Agriculture, Life Sciences and Selected Social Sciences) |
+      | mathlib@cornell.edu | Mathematics Library |
+      | musicref@cornell.edu | Music Library |
+      | okuref@cornell.edu | Olin Library (Humanities & Social Sciences) |
+      | pslref@cornell.edu | Physical Sciences Library |
+      | okuref@cornell.edu | Uris Library (Humanities & Social Sciences) |
+      | vetref@cornell.edu | Veterinary Library |
+      | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City |
+      | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
 
   @email_citation_management_help
   # https://www.library.cornell.edu/research/citation/help
