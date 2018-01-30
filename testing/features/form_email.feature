@@ -109,7 +109,7 @@ Feature: Some webforms should send emails after submit
     Given I visit page "research/citation/help"
         And I do not see complaints about javascript
         And I enter "James G. Reidy" for field "edit-submitted-full-name"
-        And I enter "cul-web-test@cornell.edu" for field "edit-submitted-email-address"
+        And I enter "cul-web-test-confirm@cornell.edu" for field "edit-submitted-email-address"
         And I select "<library>" from popup "edit-submitted-select-a-library"
         And I enter test email question into "edit-submitted-enter-your-comments-or-questions-in-the-box" with sequence "22" and tag "<elist>"
         And I hit Submit
