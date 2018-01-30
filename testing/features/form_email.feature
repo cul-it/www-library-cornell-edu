@@ -140,3 +140,41 @@ Feature: Some webforms should send emails after submit
       | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City) |
       | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
 
+  @email_research_consultation
+  # https://www.library.cornell.edu/research/consultation
+  Scenario Outline: Research Consultation form email test
+    Given I visit page "research/consultation"
+        And I do not see complaints about javascript
+        And I enter "James G. Reidy" for field "edit-submitted-your-name"
+        And I enter "cul-web-test-confirm@cornell.edu" for field "edit-submitted-your-e-mail-address"
+        And I select "Cornell Staff" from popup "edit-submitted-status"
+        And I select "<library>" from popup "edit-submitted-library"
+        And I select "other" from popup "edit-submitted-type-of-research"
+        And I enter "tomorrow" for field "edit-submitted-when-is-the-deadline"   
+        And I enter test email question into "edit-submitted-your-research-assignment-or-project" with sequence "23" and tag "<elist>"
+        And I hit Submit
+    Then I should not see a problem with submission message
+        And I should see a thank you message
+ 
+    Examples:
+      | elist | library |
+      | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology |
+      | Africana_Library@cornell.edu | Africana Library |
+      | engrref@cornell.edu | Engineering Library |
+      | entomologylib@cornell.edu | Entomology Library |
+      | fineartsref@cornell.edu | Fine Arts Library |
+      | lib@nysaes.cornell.edu | Geneva Library |
+      | hotelref@cornell.edu | Hotel Library |
+      | ilrref@cornell.edu | Industrial & Labor Relations Library |
+      | asiaref@cornell.edu | Kroch Library (Asia) |
+      | rareref@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections) |
+      | mgtref@cornell.edu | Management Library |
+      | mann-ref@cornell.edu | Mann Library (Agriculture, Life Sciences and Selected Social Sciences) |
+      | mathlib@cornell.edu | Mathematics Library |
+      | musicref@cornell.edu | Music Library |
+      | okuref@cornell.edu | Olin Library (Humanities & Social Sciences) |
+      | pslref@cornell.edu | Physical Sciences Library |
+      | okuref@cornell.edu | Uris Library (Humanities & Social Sciences) |
+      | vetref@cornell.edu | Veterinary Library |
+      | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City |
+      | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
