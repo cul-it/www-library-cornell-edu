@@ -64,7 +64,7 @@ Feature: Some webforms should send emails after submit
       | engrref@cornell.edu | Engineering Library |
       | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
-      | hotelref@cornell.edu | Hotel Library |
+      | hotellibrary@cornell.edu | Hotel Library |
       | ilrref@cornell.edu | Industrial and Labor Relations Library |
       | asiaref@cornell.edu | Kroch Library (Asia) |
       | ljh5@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections)  |
@@ -124,7 +124,7 @@ Feature: Some webforms should send emails after submit
       | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | lib@nysaes.cornell.edu | Geneva Library |
-      | hotelref@cornell.edu | Hotel Library |
+      | hotellibrary@cornell.edu | Hotel Library |
       | ilrref@cornell.edu | Industrial & Labor Relations Library |
       | asiaref@cornell.edu | Kroch Library (Asia) |
       | rareref@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections) |
@@ -164,7 +164,7 @@ Feature: Some webforms should send emails after submit
       | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | lib@nysaes.cornell.edu | Geneva Library |
-      | hotelref@cornell.edu | Hotel Library |
+      | hotellibrary@cornell.edu | Hotel Library |
       | ilrref@cornell.edu | Industrial & Labor Relations Library |
       | asiaref@cornell.edu | Kroch Library (Asia) |
       | rareref@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections) |
