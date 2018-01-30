@@ -118,4 +118,25 @@ Feature: Some webforms should send emails after submit
  
     Examples:
       | elist | library |
-      | cul-web-test@cornell.edu | Test |
+      | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology) |
+      | Africana_Library@cornell.edu | Africana Library |
+      | engrref@cornell.edu | Engineering Library |
+      | entomologylib@cornell.edu | Entomology Library |
+      | fineartsref@cornell.edu | Fine Arts Library |
+      | lib@nysaes.cornell.edu | Geneva Library |
+      | hotelref@cornell.edu | Hotel Library |
+      | ilrref@cornell.edu | Industrial & Labor Relations Library |
+      | asiaref@cornell.edu | Kroch Library (Asia) |
+      | rareref@cornell.edu | Kroch Library (Division of Rare and Manuscript Collections) |
+      | library@law.mail.cornell.edu | Law Library |
+      | mgtref@cornell.edu | Management Library |
+      | mann-ref@cornell.edu | Mann Library (Agriculture, Life Sciences & Selected Social Sciences) |
+      | mathlib@cornell.edu | Mathematics Library |
+      | musicref@cornell.edu | Music Library |
+      | okuref@cornell.edu | Olin Library (Humanities & Social Sciences) |
+      | pslref@cornell.edu | Physical Sciences Library |
+      | okuref@cornell.edu | Uris Library (Humanities & Social Sciences) |
+      | vetref@cornell.edu | Veterinary Library |
+      | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City) |
+      | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
+
