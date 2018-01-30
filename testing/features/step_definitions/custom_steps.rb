@@ -205,7 +205,7 @@ Given("I select {string} from popup {string}") do |string, string2|
 end
 
 Given("I enter test email question into {string} with sequence {string} and tag {string}") do |string, string2, string3|
-  fill_in("#{string}", :with => "This is a test email from a web form on www.library.cornell.edu. If you see this email, please reply 'Got it' (or some such thing), so we'll know it's working. After that, please delete it so no one else is bothered. Thanks. -JGReidy [webform-email-test;#{string2};#{string3}]")
+  fill_in("#{string}", :with => "This is a TEST EMAIL from a web form on www.library.cornell.edu. If you see this message, please forward the entire email to us at cul-web-test-confirm@cornell.edu so we'll know the web form email is working. After that, please delete it so no one else is bothered. Thanks. -JGReidy [webform-email-test;#{string2};#{string3}]")
 end
 
 Then("I hit Submit") do
@@ -213,6 +213,13 @@ Then("I hit Submit") do
   # Honeypot complains if it took less than 5 sconds to fill out the form
   sleep_for(6)
   click_button("Submit")
+end
+
+Then("I submit by hitting button {string}") do |string|
+  # https://www.drupal.org/project/webform/issues/2906236
+  # Honeypot complains if it took less than 5 sconds to fill out the form
+  sleep_for(6)
+  click_button(string)
 end
 
 Then ("I should not see a problem with submission message") do
