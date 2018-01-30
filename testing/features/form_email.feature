@@ -23,7 +23,6 @@ Feature: Some webforms should send emails after submit
       | Adelson_lib | Adelson Library (Lab of Ornithology) |
       | Africana_Library | Africana Library |
       | engrref | Engineering Library |
-      | entomologylib | Entomology Library |
       | fineartsref | Fine Arts Library |
       | ilrref | Industrial & Labor Relations Library |
       | asiaref | Kroch Library (Asia) |
@@ -62,7 +61,6 @@ Feature: Some webforms should send emails after submit
       | Adelson_lib@cornell.edu | Adelson Library at Lab of Ornithology |
       | Africana_Library@cornell.edu | Africana Library |
       | engrref@cornell.edu | Engineering Library |
-      | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | hotellibrary@cornell.edu | Hotel Library |
       | ilrref@cornell.edu | Industrial and Labor Relations Library |
@@ -103,7 +101,6 @@ Feature: Some webforms should send emails after submit
       | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology |
       | Africana_Library@cornell.edu | Africana Library |
       | engrref@cornell.edu | Engineering Library |
-      | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | lib@nysaes.cornell.edu | Geneva Library |
       | hotellibrary@cornell.edu | Hotel Library |
@@ -140,7 +137,6 @@ Feature: Some webforms should send emails after submit
       | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology) |
       | Africana_Library@cornell.edu | Africana Library |
       | engrref@cornell.edu | Engineering Library |
-      | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | lib@nysaes.cornell.edu | Geneva Library |
       | hotellibrary@cornell.edu | Hotel Library |
@@ -180,7 +176,6 @@ Feature: Some webforms should send emails after submit
       | Adelson_lib@cornell.edu | Adelson Library (Lab of Ornithology |
       | Africana_Library@cornell.edu | Africana Library |
       | engrref@cornell.edu | Engineering Library |
-      | entomologylib@cornell.edu | Entomology Library |
       | fineartsref@cornell.edu | Fine Arts Library |
       | lib@nysaes.cornell.edu | Geneva Library |
       | hotellibrary@cornell.edu | Hotel Library |
