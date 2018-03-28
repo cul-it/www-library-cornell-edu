@@ -2,7 +2,7 @@
 core = "7.x"
 api = "2"
 
-projects[drupal] = "7.56"
+projects[drupal] = "7.57"
 
 libraries[bootstrap][destination] = themes/bootstrap
 libraries[bootstrap][directory_name] = "bootstrap"
@@ -83,7 +83,7 @@ projects[elysia_cron][version] = "2.4"
 projects[email][subdir] = "contrib"
 projects[email][version] = "1.3"
 projects[entity][subdir] = "contrib"
-projects[entity][version] = "1.8"
+projects[entity][version] = "1.9"
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][version] = "1.5"
 projects[features][subdir] = "contrib"
