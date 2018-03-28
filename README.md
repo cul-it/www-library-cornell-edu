@@ -46,4 +46,4 @@ bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test
 bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags @ares
 
 With Antibot enabled:
-bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags ~@ares
+bundle exec cucumber HEADLESS=selenium_chrome_headless DOMAIN=test --tags ~@ares --tags ~@email

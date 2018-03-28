@@ -6,6 +6,7 @@ Feature: Some webforms should send emails after submit
   @email_ask_a_librarian
   # https://www.library.cornell.edu/ask/email
   Scenario Outline: Ask a Librarian form email test
+    Given PENDING : so we won't be spamming the email lists by mistake
     Given I visit page "ask/email"
         And I do not see complaints about javascript
         And I enter "James Reidy" for field "edit-submitted-name"
@@ -44,6 +45,7 @@ Feature: Some webforms should send emails after submit
   @email_request_class_instruction
   # https://www.library.cornell.edu/services/instruction/request
   Scenario Outline: Request Class Instruction form email test
+    Given PENDING : so we won't be spamming the email lists by mistake
     Given I visit page "services/instruction/request"
         And I do not see complaints about javascript
         And I enter "Library Webform Email Test" for field "edit-submitted-instructor-information-instructors-department2"
@@ -81,6 +83,7 @@ Feature: Some webforms should send emails after submit
   @email_still_unable_to_connect
   # https://www.library.cornell.edu/still-not-able-connect
   Scenario Outline: Still Not Able to Connect? form email test
+    Given PENDING : so we won't be spamming the email lists by mistake
     Given I visit page "still-not-able-connect"
         And I do not see complaints about javascript
         And I select "other" from popup "edit-submitted-os"
@@ -122,6 +125,7 @@ Feature: Some webforms should send emails after submit
   @email_citation_management_help
   # https://www.library.cornell.edu/research/citation/help
   Scenario Outline: Citation Management Help form email test
+    Given PENDING : so we won't be spamming the email lists by mistake
     Given I visit page "research/citation/help"
         And I do not see complaints about javascript
         And I enter "James G. Reidy" for field "edit-submitted-full-name"
@@ -158,6 +162,7 @@ Feature: Some webforms should send emails after submit
   @email_research_consultation
   # https://www.library.cornell.edu/research/consultation
   Scenario Outline: Research Consultation form email test
+    Given PENDING : so we won't be spamming the email lists by mistake
     Given I visit page "research/consultation"
         And I do not see complaints about javascript
         And I enter "James G. Reidy" for field "edit-submitted-your-name"
@@ -192,3 +197,42 @@ Feature: Some webforms should send emails after submit
       | vetref@cornell.edu | Veterinary Library |
       | infodesk@med.cornell.edu | Weill Cornell Medical Library (New York City |
       | askalibrarian@qatar-med.cornell.edu | Weill Cornell Medical College-Qatar, Distributed eLibrary |
+
+  @email_from_and_to_addresses
+  # https://www.library.cornell.edu/email-test-form-iterator-component-text-and
+  Scenario Outline: Iterate over classes of From and To email addresses
+    Given I visit page "email-test-form-iterator-component-text-and"
+        And I do not see complaints about javascript
+        And I enter "<From Email>" for field "edit-submitted-from-email"
+        And I enter "<To Email>" for field "edit-submitted-to-email"
+        And I enter "<Message>" for field "edit-submitted-message"
+        And I hit Submit
+    Then I should not see a problem with submission message
+        And I should see a webform confirmation message
+ 
+    Examples:
+        | From Email | To Email | Message |
+        | jgr25@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Cornell netID to Lyris List. Email Test Form Iterator - component text from and to |
+        | jreidy@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Cornell custom to Lyris List. Email Test Form Iterator - component text from and to |
+        | jreidy25@gmail.com | library-webform-test-l@cornell.edu | Testing email from Outside regular to Lyris List. Email Test Form Iterator - component text from and to |
+        | fao@hzu.edu.cn | library-webform-test-l@cornell.edu | Testing email from Outside spammy to Lyris List. Email Test Form Iterator - component text from and to |
+        | jgr25+main1@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Victoria Server Email to Lyris List. Email Test Form Iterator - component text from and to |
+        | cul-drupal-admins@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Drupal Admins EGA to Lyris List. Email Test Form Iterator - component text from and to |
+        | libsys-mailer@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Pantheon Site SMTP to Lyris List. Email Test Form Iterator - component text from and to |
+        | culwebforms@cornell.edu | library-webform-test-l@cornell.edu | Testing email from Web Forms EGA to Lyris List. Email Test Form Iterator - component text from and to |
+        | jgr25@cornell.edu | cul-web-test@cornell.edu | Testing email from Cornell netID to EGA. Email Test Form Iterator - component text from and to |
+        | jreidy@cornell.edu | cul-web-test@cornell.edu | Testing email from Cornell custom to EGA. Email Test Form Iterator - component text from and to |
+        | jreidy25@gmail.com | cul-web-test@cornell.edu | Testing email from Outside regular to EGA. Email Test Form Iterator - component text from and to |
+        | fao@hzu.edu.cn | cul-web-test@cornell.edu | Testing email from Outside spammy to EGA. Email Test Form Iterator - component text from and to |
+        | jgr25+main1@cornell.edu | cul-web-test@cornell.edu | Testing email from Victoria Server Email to EGA. Email Test Form Iterator - component text from and to |
+        | cul-drupal-admins@cornell.edu | cul-web-test@cornell.edu | Testing email from Drupal Admins EGA to EGA. Email Test Form Iterator - component text from and to |
+        | libsys-mailer@cornell.edu | cul-web-test@cornell.edu | Testing email from Pantheon Site SMTP to EGA. Email Test Form Iterator - component text from and to |
+        | culwebforms@cornell.edu | cul-web-test@cornell.edu | Testing email from Web Forms EGA to EGA. Email Test Form Iterator - component text from and to |
+        | jgr25@cornell.edu | jgr25@cornell.edu | Testing email from Cornell netID to Individual. Email Test Form Iterator - component text from and to |
+        | jreidy@cornell.edu | jgr25@cornell.edu | Testing email from Cornell custom to Individual. Email Test Form Iterator - component text from and to |
+        | jreidy25@gmail.com | jgr25@cornell.edu | Testing email from Outside regular to Individual. Email Test Form Iterator - component text from and to |
+        | fao@hzu.edu.cn | jgr25@cornell.edu | Testing email from Outside spammy to Individual. Email Test Form Iterator - component text from and to |
+        | jgr25+main1@cornell.edu | jgr25@cornell.edu | Testing email from Victoria Server Email to Individual. Email Test Form Iterator - component text from and to |
+        | cul-drupal-admins@cornell.edu | jgr25@cornell.edu | Testing email from Drupal Admins EGA to Individual. Email Test Form Iterator - component text from and to |
+        | libsys-mailer@cornell.edu | jgr25@cornell.edu | Testing email from Pantheon Site SMTP to Individual. Email Test Form Iterator - component text from and to |
+        | culwebforms@cornell.edu | jgr25@cornell.edu | Testing email from Web Forms EGA to Individual. Email Test Form Iterator - component text from and to |
